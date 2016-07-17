@@ -1,5 +1,7 @@
 # Mergebot
 
+[![Build Status](https://travis-ci.org/Debian/mergebot.svg?branch=master)](https://travis-ci.org/Debian/mergebot)
+
 ## Vision
 
 Minimize the number of steps required to accept contributions for Debian packages you maintain.
