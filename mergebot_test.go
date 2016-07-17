@@ -10,6 +10,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/Debian/mergebot/loggedexec"
@@ -32,6 +33,14 @@ func init() {
 
 		os.Exit(0)
 	}
+}
+
+func distributionIsUbuntu() bool {
+	contents, err := ioutil.ReadFile("/etc/lsb-release")
+	if err != nil {
+		return false
+	}
+	return strings.Contains(string(contents), "DISTRIB_ID=Ubuntu")
 }
 
 func TestMergeAndBuild(t *testing.T) {
@@ -105,6 +114,11 @@ echo "git\tfile://%s/.git"
 		t.Fatal(err)
 	}
 
+	version := "1.1"
+	if distributionIsUbuntu() {
+		version = "1.0ubuntu1"
+	}
+
 	cmd = loggedexec.Command("git", "log", "--format=%an %ae %s", "HEAD~2..")
 	cmd.LogDir = tempDir
 	cmd.Dir = packageDir
@@ -112,9 +126,9 @@ echo "git\tfile://%s/.git"
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got, want := string(output), `Test Case test@case Update changelog for 1.1 release
+	if got, want := string(output), fmt.Sprintf(`Test Case test@case Update changelog for %s release
 Chris Lamb lamby@debian.org Fix for “wit: please make the build reproducible” (Closes: #1)
-`; got != want {
+`, version); got != want {
 		t.Fatalf("Unexpected git history after push: got %q, want %q", got, want)
 	}
 
@@ -125,9 +139,9 @@ Chris Lamb lamby@debian.org Fix for “wit: please make the build reproducible�
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got, want := string(output), `debian/1.0
-debian/1.1
-`; got != want {
-		t.Fatalf("Unexpected git history after push: got %q, want %q", got, want)
+	if got, want := string(output), fmt.Sprintf(`debian/1.0
+debian/%s
+`, version); got != want {
+		t.Fatalf("Unexpected git tags after push: got %q, want %q", got, want)
 	}
 }
