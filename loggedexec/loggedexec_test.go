@@ -119,3 +119,9 @@ func TestTee(t *testing.T) {
 		t.Fatalf("Unexpected stdout/stderr buffer contents: got %q, want %q", got, want)
 	}
 }
+
+func TestResetCounter(t *testing.T) {
+	cmdCountMu.Lock()
+	cmdCount = 0
+	cmdCountMu.Unlock()
+}
