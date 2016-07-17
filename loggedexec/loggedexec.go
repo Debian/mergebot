@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -90,7 +91,7 @@ func (c *capturingWriter) FirstLine() string {
 func quoteStrings(input []string) []string {
 	output := make([]string, len(input))
 	for idx, val := range input {
-		output[idx] = `"` + val + `"`
+		output[idx] = strconv.Quote(val)
 	}
 	return output
 }
