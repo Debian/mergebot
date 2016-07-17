@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><soap:Envelope soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/1999/XMLSchema" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"><soap:Body><get_bug_logResponse xmlns="Debbugs/SOAP"><soapenc:Array soapenc:arrayType="xsd:ur-type[1]" xsi:type="soapenc:Array"><item><attachments soapenc:arrayType="xsd:ur-type[0]" xsi:type="soapenc:Array" /><body xsi:type="xsd:string">This is a multi-part message in MIME format.
+
+--_----------=_146851316918670990
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+
+Source: wit
+Version: 2.31a-2
+Severity: wishlist
+Tags: patch
+User: reproducible-builds@lists.alioth.debian.org
+Usertags: timestamps
+X-Debbugs-Cc: reproducible-builds@lists.alioth.debian.org
+
+Hi,
+
+Whilst working on the "reproducible builds" effort [0], we noticed
+that wit could not be built reproducibly.
+
+Patch attached. It can probably be sent upstream.
+
+ [0] https://wiki.debian.org/ReproducibleBuilds
+
+
+Regards,
+
+-- 
+      ,''`.
+     : :'  :     Chris Lamb
+     `. `'`      lamby@debian.org / chris-lamb.co.uk
+       `-
+
+--_----------=_146851316918670990
+Content-Disposition: attachment; filename="wit.diff.txt"
+Content-Id: &lt;generated-529f9b51c7dd68b9f2a8dc1e37a29afa@messagingengine.com&gt;
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"; name="wit.diff.txt"
+
+LS0tIGEvZGViaWFuL3BhdGNoZXMvMDAwMS1SZXByb2R1Y2libGUtYnVpbGQu
+cGF0Y2gJMTk3MC0wMS0wMSAwMjowMDowMC4wMDAwMDAwMDAgKzAyMDAKLS0t
+IGIvZGViaWFuL3BhdGNoZXMvMDAwMS1SZXByb2R1Y2libGUtYnVpbGQucGF0
+Y2gJMjAxNi0wNy0xNCAxNzoxNzozNi45MjE3OTU3OTAgKzAyMDAKQEAgLTAs
+MCArMSwxNCBAQAorQXV0aG9yOiBDaHJpcyBMYW1iIDxsYW1ieUBkZWJpYW4u
+b3JnPgorTGFzdC1VcGRhdGU6IDIwMTYtMDctMTQKKworLS0tIHdpdC0yLjMx
+YS5vcmlnL3NldHVwLnNoCisrKysgd2l0LTIuMzFhL3NldHVwLnNoCitAQCAt
+MTYsNyArMTYsNyBAQCByZXZpc2lvbl9udW09IiR7cmV2aXNpb24vL1shMC05
+XS99IgorIHJldmlzaW9uX25leHQ9JHJldmlzaW9uX251bQorIFtbICRyZXZp
+c2lvbiA9ICRyZXZpc2lvbl9udW0gXV0gfHwgbGV0IHJldmlzaW9uX25leHQr
+KworIAorLXRpbT0oJChkYXRlICcrJXMgJVktJW0tJWQgJVQnKSkKKyt0aW09
+KCQoZGF0ZSAtLXV0YyAtLWRhdGU9IkAke1NPVVJDRV9EQVRFX0VQT0NIOi0k
+KGRhdGUgKyVzKX0iICcrJXMgJVktJW0tJWQgJVQnKSkKKyBkZWZpbmVzPQor
+IAorIGhhdmVfZnVzZT0wCi0tLSBhL2RlYmlhbi9wYXRjaGVzL3Nlcmllcwky
+MDE2LTA3LTE0IDE3OjEzOjI1LjUxNTI4NjkzMSArMDIwMAotLS0gYi9kZWJp
+YW4vcGF0Y2hlcy9zZXJpZXMJMjAxNi0wNy0xNCAxNzoxNzoyMi45MjE2NTU5
+NTAgKzAyMDAKQEAgLTEsMyArMSw0IEBACiB1c2UtbGliYnoyLWFuZC1taGFz
+aC5wYXRjaAogZml4LXVzci1sb2NhbC5wYXRjaAogMDAwMy1Eb24tdC1saW5r
+LXdmdXNlLWFnYWluc3QtbGliZGwucGF0Y2gKKzAwMDEtUmVwcm9kdWNpYmxl
+LWJ1aWxkLnBhdGNoCg==
+
+--_----------=_146851316918670990--</body><header xsi:type="xsd:string">Received: (at submit) by bugs.debian.org; 14 Jul 2016 16:19:30 +0000
+From lamby@debian.org Thu Jul 14 16:19:30 2016
+X-Spam-Checker-Version: SpamAssassin 3.4.0-bugs.debian.org_2005_01_02
+	(2014-02-07) on buxtehude.debian.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-4.3 required=4.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FROMDEVELOPER,MURPHY_DRUGS_REL8,RCVD_IN_DNSWL_LOW,
+	RCVD_IN_MSPIKE_H3,RCVD_IN_MSPIKE_WL,URIBL_CNKR autolearn=ham
+	autolearn_force=no version=3.4.0-bugs.debian.org_2005_01_02
+X-Spam-Bayes: score:0.0000 Tokens: new, 32; hammy, 150; neutral, 51; spammy,
+	0. spammytokens: hammytokens:0.000-+--xdebbugscc, 0.000-+--x-debbugs-cc,
+	0.000-+--UD:patch, 0.000-+--Usertags, 0.000-+--X-Debbugs-Cc
+Return-path: &lt;lamby@debian.org&gt;
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	by buxtehude.debian.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.84_2)
+	(envelope-from &lt;lamby@debian.org&gt;)
+	id 1bNjMI-0005sW-El
+	for submit@bugs.debian.org; Thu, 14 Jul 2016 16:19:30 +0000
+Received: from compute7.internal (compute7.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 433DB2053F
+	for &lt;submit@bugs.debian.org&gt;; Thu, 14 Jul 2016 12:19:29 -0400 (EDT)
+Received: from web3 ([10.202.2.213])
+  by compute7.internal (MEProxy); Thu, 14 Jul 2016 12:19:29 -0400
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=
+	messagingengine.com; h=content-transfer-encoding:content-type
+	:date:from:message-id:mime-version:subject:to:x-sasl-enc
+	:x-sasl-enc; s=smtpout; bh=miFAbaDyPFScCDa9IAUt1HwTX/U=; b=TiAMy
+	0xIuxZAdIIv+fGBeynuA8gIhHVzEAbGg1I9KYucUdau53lVUaiUU3kXPJxDMgNa3
+	GyPBIli8fG6MH1qwRswGhepHcbbrruNLx7eSedljEatb2kkrKCmDzql+nzNlJP+9
+	Nq9LtwY/fpuY9Y4+qa12dSj648Uzz3s1PwgygY=
+Received: by mailuser.nyi.internal (Postfix, from userid 99)
+	id 1BADD16719; Thu, 14 Jul 2016 12:19:29 -0400 (EDT)
+Message-Id: &lt;1468513169.1867099.666367833.09B46F8E@webmail.messagingengine.com&gt;
+X-Sasl-Enc: acxzVuX/5nQVLFtZB1imxTMA9KkPvDWcA2ZjP254Ls5D 1468513169
+From: Chris Lamb &lt;lamby@debian.org&gt;
+To: submit@bugs.debian.org
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="_----------=_146851316918670990";
+ charset="utf-8"
+X-Mailer: MessagingEngine.com Webmail Interface - ajax-bf4e2c8f
+Subject: wit: please make the build reproducible
+Date: Thu, 14 Jul 2016 18:19:29 +0200
+Delivered-To: submit@bugs.debian.org</header><msg_num xsi:type="xsd:int">5</msg_num></item></soapenc:Array></get_bug_logResponse></soap:Body></soap:Envelope>

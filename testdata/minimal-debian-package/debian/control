@@ -1,0 +1,11 @@
+Source: min
+Priority: extra
+Section: devel
+Build-Depends: debhelper (>= 9)
+Maintainer: Michael Stapelberg <stapelberg@debian.org>
+
+Package: min
+Architecture: any
+Depends: ${misc:Depends}
+Description: min
+ min
