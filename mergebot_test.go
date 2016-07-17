@@ -70,6 +70,8 @@ func TestMergeAndBuild(t *testing.T) {
 	for _, args := range [][]string{
 		[]string{"init"},
 		[]string{"add", "."},
+		[]string{"config", "user.name", "Test Case"},
+		[]string{"config", "user.email", "test@case"},
 		[]string{"commit", "-a", "-m", "Initial commit"},
 		[]string{"tag", "debian/1.0"},
 		[]string{"config", "--local", "receive.denyCurrentBranch", "updateInstead"},
