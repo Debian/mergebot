@@ -41,9 +41,11 @@ func repositoryFor(sourcePackage string) (string, string, error) {
 	}
 	scm := parts[0]
 	url := parts[1]
-	url = strings.Replace(url, "git", "git+ssh", 1)
-	url = strings.Replace(url, "anonscm.debian.org", "git.debian.org", 1)
-	url = strings.Replace(url, "debian.org", "debian.org/git", 1)
+	if strings.Contains(url, "anonscm.debian.org") {
+		url = strings.Replace(url, "git", "git+ssh", 1)
+		url = strings.Replace(url, "anonscm.debian.org", "git.debian.org", 1)
+		url = strings.Replace(url, "debian.org", "debian.org/git", 1)
+	}
 	return scm, url, nil
 }
 
