@@ -1,0 +1,38 @@
+sudo: required
+dist: trusty
+
+language: go
+go:
+  - 1.6
+
+addons:
+  apt:
+    packages:
+    - git
+    - devscripts
+    # For sbuild:
+    - sbuild
+    - debootstrap
+    # For building the package:
+    - git-buildpackage
+    - debhelper
+
+before_install:
+  # Generating keys using sbuild-update --keygen takes so long that travis
+  # times out. Hence, we use pre-generated keys. The resulting packages are
+  # discarded anyway, so these keys being public is not an issue.
+  - sudo cp travis/sbuild-key.pub /var/lib/sbuild/apt-keys/sbuild-key.pub
+  - sudo cp travis/sbuild-key.sec /var/lib/sbuild/apt-keys/sbuild-key.sec
+  - sudo sbuild-adduser travis
+  - sudo sbuild-createchroot --include=eatmydata,ccache,gnupg unstable /srv/chroot/unstable-amd64 http://deb.debian.org/debian
+
+script:
+  - echo go test ./ -skip_test_cleanup | newgrp sbuild
+  - go test ./loggedexec
+  # Check whether files are syntactically correct.
+  - "gofmt -l $(find . -name '*.go' | tr '\\n' ' ') >/dev/null"
+  # Check whether files were not gofmt'ed.
+  - "gosrc=$(find . -name '*.go' | tr '\\n' ' '); [ $(gofmt -l $gosrc 2>&- | wc -l) -eq 0 ] || (echo 'gofmt was not run on these files:'; gofmt -l $gosrc 2>&-; false)"
+  - go tool vet .
+
+after_failure: bash -c 'head -500 /tmp/test-merge-and-build-*/**/*'
