@@ -23,6 +23,17 @@ cd /tmp/mergebot-19384221
 
 See “Future ideas” for how to further streamline this process.
 
+## Installation
+
+Until `mergebot` is packaged in Debian, use these instructions to install Go
+and build `mergebot` from source:
+
+```
+sudo apt-get install golang-go
+export GOPATH=~/gocode
+go get -u github.com/Debian/mergebot
+```
+
 ## Dependencies
 
 * `git`
