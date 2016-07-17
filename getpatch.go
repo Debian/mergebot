@@ -76,7 +76,7 @@ func getMostRecentPatch(url, bug string) (patch, error) {
 
 	// TODO: handle bugs with multiple messages
 	if len(r.Bugs) != 1 {
-		log.Fatal("len(r.Bugs) = %d", len(r.Bugs))
+		log.Fatalf("len(r.Bugs) = %d", len(r.Bugs))
 	}
 
 	body := r.Bugs[0].Body
@@ -114,7 +114,7 @@ func getMostRecentPatch(url, bug string) (patch, error) {
 			result.Data, err = base64.StdEncoding.DecodeString(string(encoded))
 			return result, err
 		} else {
-			log.Fatal("unsupported Content-Transfer-Encoding: %q", p.Header.Get("Content-Transfer-Encoding"))
+			log.Fatalf("unsupported Content-Transfer-Encoding: %q", p.Header.Get("Content-Transfer-Encoding"))
 		}
 	}
 
