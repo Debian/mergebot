@@ -14,7 +14,7 @@ package, use:
 mergebot -source_package=wit -bug=831331
 ```
 
-Afterwards, introspect the resulting Debian package and git repository.
+Afterwards, inspect the resulting Debian package and git repository.
 If both look good, push and upload using the following commands which are
 suggested by the `mergebot` invocation above:
 ```
